@@ -183,7 +183,7 @@ function init() {
       return dataset[0].metric;
     })
     .attr('id', "Name")
-    .attr('transform', "translate(" + (width / 2.60) + ", " + (height / 1.4) + ")")
+    .attr('transform', "translate(" + (width / 2.4) + ", " + (height / 1.4) + ")")
     .attr("font-size", 24)
     .attr("font-weight", 700)
     .style("fill", "#000000");

@@ -277,7 +277,8 @@ input::placeholder {
   display: grid;
   grid-template-columns: [col] auto [col] auto [col] auto;
   grid-template-rows: [row] auto [row] auto [row] auto [row];
-  grid-gap: var(--global-baseline);
+  grid-column-gap: var(--global-baseline);
+  grid-row-gap: calc(var(--global-baseline) / 1.5);
   /*grid-template-columns: repeat(3, 1fr);*/
   overflow: hidden;
   position: relative;
@@ -371,6 +372,11 @@ input::placeholder {
   color: var(--global-color-dark-blue);
 }
 
+.c-app__logo-second {
+  font-size: 24px;
+  color: var(--global-color-dark-blue);
+}
+
 .c-app__header {
   font-size: 20px;
   line-height: 28px;
@@ -391,8 +397,9 @@ input::placeholder {
   flex-direction: row;
   justify-content: center;
   text-align: center;
-  font-size: 20px;
-  line-height: 28px;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--global-color-blue);
 }
 
 .c-app__pollen-item {
@@ -427,15 +434,17 @@ input::placeholder {
   position: relative;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-end;
   height: 200px;
-  margin: 0 auto;
-  border: solid 5px #ccc;
+  width: 350px;
+  border: solid 2px var(--global-color-blue);
+  background-color: var(--global-color-light-blue);
 }
 
 [class*=c-date] {
   display: inline-block;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   width: 60px;
   background: #ccc;
@@ -445,16 +454,19 @@ input::placeholder {
 .c-date1 {
   background: #0c9;
   left: 10px;
+  bottom: 0;
 }
 
 .c-date2 {
   background: #09c;
   left: 80px;
+  bottom: 0;
 }
 
 .c-date3 {
   background: #0cc;
   left: 150px;
+  bottom: 0;
 }
 
 @keyframes anime1 {
@@ -637,7 +649,8 @@ input::placeholder {
   }
 
   .c-grid {
-    grid-gap: var(--global-whitespace)
+    grid-column-gap: var(--global-whitespace);
+    grid-row-gap: calc(var(--global-whitespace) / 1.5);
   }
 
   .c-app {
@@ -664,7 +677,8 @@ input::placeholder {
   }
 
   .c-grid {
-    grid-gap: var(--global-whitespace-lg)
+    grid-column-gap: var(--global-whitespace-lg);
+    grid-row-gap: calc(var(--global-whitespace-lg) / 1.5);
   }
 
   .c-app {
@@ -683,8 +697,8 @@ input::placeholder {
   }
 
   .c-app__pollen-items {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 20px;
+    line-height: 28px;
   }
 
   .c-app__pollen-item {

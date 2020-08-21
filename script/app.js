@@ -35,13 +35,13 @@ let showResultAirQuality = (queryResponse) => {
   // Showing the right data I will be using.
   console.log(levels[queryResponse.data[0].pollen_level_grass]);
 
-  document.querySelector('.js-grass').innerHTML = levels[queryResponse.data[0].pollen_level_grass];
+  document.querySelector('.js-grass').innerHTML = "Grass";
   document.querySelector('.js-grass').style.background = level_colors[queryResponse.data[0].pollen_level_grass];
   document.querySelector('.js-grass').style.height = `${queryResponse.data[0].pollen_level_grass * 25}%`;
-  document.querySelector('.js-tree').innerHTML = levels[queryResponse.data[0].pollen_level_tree];
+  document.querySelector('.js-tree').innerHTML = "Tree";
   document.querySelector('.js-tree').style.background = level_colors[queryResponse.data[0].pollen_level_tree];
   document.querySelector('.js-tree').style.height = `${queryResponse.data[0].pollen_level_tree * 25}%`;
-  document.querySelector('.js-weed').innerHTML = levels[queryResponse.data[0].pollen_level_weed];
+  document.querySelector('.js-weed').innerHTML = "Weed";
   document.querySelector('.js-weed').style.background = `${level_colors[queryResponse.data[0].pollen_level_weed]}`;
   document.querySelector('.js-weed').style.height = `${queryResponse.data[0].pollen_level_weed * 25}%`;
 
