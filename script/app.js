@@ -23,10 +23,10 @@ let showResultLiveboard = queryResponse => {
   });
 
   document.querySelector('.js-date').innerHTML = `${day} ${ new Date().getDate()} ${month}`;
-  let degree = document.querySelector('.js-degree').appendChild(addDivItem(Math.round(queryResponse.list[0].main.temp)));
+  let degree = document.querySelector('.js-degree').appendChild(addDivItem(Math.round(queryResponse.data[0].temp)));
   document.querySelector('.js-degree').appendChild(addDivItem(`℃`)).style.cssText = `font-size: 16px; font-weight: 400; line-height: 32px; display: block;`;
 
-  let city = queryResponse.city.name;
+  let city = queryResponse.data[0].city_name;
   document.querySelector('.js-city').innerHTML = city;
   getAirQualityAPI(lat, lon);
 };
@@ -50,7 +50,7 @@ let showResultAirQuality = (queryResponse) => {
 };
 
 let getCurrentWeatherAPI = (lat, lon) => {
-  const url = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${appid_1}&units=metric&lang=nl&cnt=1`;
+  const url = `https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lon}&key=${appid}`;
 
   fetch(url)
     .then(req => {
