@@ -368,7 +368,7 @@ input::placeholder {
 }
 
 .c-app__logo-first {
-  font-size: 40px;
+  font-size: 36px;
   color: var(--global-color-dark-blue);
 }
 
@@ -480,6 +480,7 @@ input::placeholder {
   display: flex;
   justify-content: center;
   align-content: center;
+  margin-top: var(--global-whitespace);
   border-top: 1px solid var(--global-color-dark-blue);
 }
 
@@ -504,13 +505,8 @@ input::placeholder {
   justify-content: center;
 }
 
-.c-linkonimage {
-  height: 100%;
-}
-
 .c-mockup {
-  height: 25%;
-  width: 25%;
+  width: 50%;
 }
 
 /*
@@ -593,7 +589,7 @@ input::placeholder {
   color: var(--global-color-blue);
   padding: var(--global-baseline);
   background-color: var(--global-color-dark-blue);
-  margin-top: var(--global-baseline);
+  margin-top: 8px;
   width: 100%;
   outline: none;
   box-shadow: 0 0 0 3px var(--global-color-dark-blue);
