@@ -1,0 +1,774 @@
+/*------------------------------------*\
+#FONTS
+\*------------------------------------*/
+@font-face {
+  font-family: "Inter Web";
+  font-weight: 400;
+  src: url("../fonts/Roboto-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter Web";
+  font-weight: 600;
+  src: url("../fonts/Roboto-Bold.woff2") format("woff2");
+}
+
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+:root {
+  /* colors */
+  --global-color-white: white;
+  --global-color-black: black;
+  --global-color-green: #E7ffCC;
+  --global-color-light-blue: #f2f9fc;
+  --global-color-dark-green: #0f5720;
+  --global-color-dark-blue: #0F3557;
+  --global-color-blue: #CCE7FF;
+  /* fonts */
+  /* opacity */
+  --opacity-muted: 0.60;
+  /* transitions */
+  /* whitespaces */
+  --global-baseline: 0.5em;
+  --global-whitespace: 1em;
+  --global-whitespace-lg: 2em;
+  /* gauge */
+  --global-wrapper-card-bg: rgba(21, 34, 46, .05);
+  --global-gauge-shadow: 0 0 0 6px rgba(255, 255, 255, .09), 0 0 35px 5px rgba(255, 255, 255, .29);
+  --global-gauge-bg: #e7e7e7;
+  --global-gauge-color: #15222E;
+  --gauge-slice-color: #000;
+  --gauge-first-slice-color: #1eaa59;
+  --gauge-second-slice-color: #9baa1e;
+  --gauge-third-slice-color: #f1c40f;
+  --gauge-fourth-slice-color: #e67e22;
+  --gauge-fifth-slice-color: #E84C3D;
+  --gauge-sixth-slice-color: #7E0023;
+}
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: 'Roboto', 'Work Sans', Helvetica, arial, sans-serif;
+  font-feature-settings: "zero"1;
+  color: var(--global-color-black);
+  /* background: linear-gradient(#6e3f98 9%, #d6ab97); */
+  background-image: linear-gradient(#69a9bf, #a3d4dd, #f8fcfd);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*
+* Remove text-shadow in selection highlight:
+* https://twitter.com/miketaylr/status/12228805301
+*
+* Customize the background color to match your design.
+*/
+::-moz-selection {
+  background: var(--global-color-dark-green);
+  color: white;
+  text-shadow: none;
+}
+
+::selection {
+  background: var(--global-color-dark-green);
+  color: white;
+  text-shadow: none;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 28px;
+  line-height: 32px;
+  margin: 0 0 4px;
+}
+
+h2 {
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0 0 4px;
+}
+
+h3 {
+  font-size: 26px;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  margin: 0 0 24px;
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+  margin: 0 0 var(--global-gap);
+}
+
+ul,
+ol {
+  padding-left: 24px;
+}
+
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
+blockquote {
+  font-style: normal;
+  font-size: 23px;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+blockquote * {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+figcaption {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 8px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: LightGrey;
+  margin: 0 0 24px;
+}
+
+a {
+  color: red;
+  outline-color: red;
+  outline-width: medium;
+  outline-offset: 2px;
+}
+
+a:visited,
+a:active {
+  color: red;
+}
+
+a:hover,
+a:focus {
+  color: red;
+}
+
+label,
+input {
+  display: block;
+}
+
+select {
+  width: 100%;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+/*
+    Object: Hide accessible
+    ---
+    Accessibly hide any element
+*/
+.o-hide-accessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+.c-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--global-baseline);
+}
+
+.c-grid {
+  display: grid;
+  grid-template-columns: [col] auto [col] auto [col] auto;
+  grid-template-rows: [row] auto [row] auto [row] auto [row];
+  grid-gap: var(--global-baseline);
+  /*grid-template-columns: repeat(3, 1fr);*/
+  overflow: hidden;
+  position: relative;
+  justify-content: space-between;
+}
+
+.c-grid__item {
+  grid-column: 1 / span 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /*&:nth-child(7) {
+      grid-row: 2 / span 2;
+    }*/
+}
+
+.c-grid__item-1 {
+  grid-column: 1 / span 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-grid__item-img {
+  margin: auto 0;
+  /* min-height: 105px;
+  min-width: 105px;
+  overflow: hidden; */
+}
+
+/*
+    Component: App
+    ---
+    Main app wrapper
+*/
+.c-app {
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  justify-content: space-between;
+  padding: var(--global-baseline);
+  /* background: radial-gradient(var(--global-color-light-blue), var(--global-color-white)); */
+  background-color: var(--global-color-white);
+  border-radius: 6px;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, .2);
+}
+
+.chart-gauge {
+  width: 400px;
+  margin: 100px auto
+}
+
+.chart-first {
+  fill: #096;
+}
+
+.chart-second {
+  fill: #ffde33;
+}
+
+.chart-third {
+  fill: #f93;
+}
+
+.chart-fourth {
+  fill: #c03;
+}
+
+.needle, .needle-center {
+  fill: #000000;
+}
+
+.text {
+  color: "#112864";
+  font-size: 16px;
+}
+
+.c-app__logo {
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  grid-column: 1 / span 3;
+  fill: var(--global-color-dark-blue);
+}
+
+.c-app__logo-first {
+  font-size: 40px;
+  color: var(--global-color-dark-blue);
+}
+
+.c-app__header {
+  font-size: 20px;
+  line-height: 28px;
+  margin: auto 0;
+}
+
+.c-app__pollen {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.c-app__pollen-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.c-app__pollen-item {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+}
+
+.c-app__air {
+  grid-column: 2 / span 2;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.c-app__degree {
+  display: flex;
+  margin: auto 0;
+  font-size: 40px;
+  line-height: 48px;
+}
+
+.c-app__description {
+  font-size: 16px;
+  line-height: 24px;
+  margin: auto 0;
+  grid-column: 1 / span 2;
+}
+
+.c-app__barchart {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  margin: 0 auto;
+  border: solid 5px #ccc;
+}
+
+[class*=c-date] {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  width: 60px;
+  background: #ccc;
+  animation: anime1 1s ease-out 1;
+}
+
+.c-date1 {
+  background: #0c9;
+  left: 10px;
+}
+
+.c-date2 {
+  background: #09c;
+  left: 80px;
+}
+
+.c-date3 {
+  background: #0cc;
+  left: 150px;
+}
+
+@keyframes anime1 {
+  0% {
+    height: 0px;
+  }
+}
+
+.c-online {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-top: 1px solid var(--global-color-dark-blue);
+}
+
+.c-landing__icon {
+  margin-bottom: 20px;
+}
+
+.c-landing__title-between {
+  text-align: center;
+  font-size: 24px;
+  min-width: 206px;
+}
+
+.c-landing__info {
+  padding: 8px;
+  margin-left: 0;
+  text-align: center;
+}
+
+.c-fullwidth {
+  display: flex;
+  justify-content: center;
+}
+
+.c-linkonimage {
+  height: 100%;
+}
+
+.c-mockup {
+  height: 25%;
+  width: 25%;
+}
+
+/*
+    Component: Input
+    ---
+    Class to put on all input="text" like form inputs
+*/
+.c-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  padding: calc(8px * 1.5 - 2px) 16px;
+  width: 100%;
+  background-color: var(--global-color-blue);
+  color: var(--global-color-dark-blue);
+  font-family: inherit;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0 0 24px;
+  outline: none;
+  transition: border 0.1s ease-out;
+  box-shadow: 0.1s ease-out;
+  border: 1px solid var(--global-color-light-blue);
+}
+
+.c-input:hover {
+  border-color: var(--global-color-dark-green);
+}
+
+.c-input:focus,
+.c-input:active {
+  border-color: var(--global-color-dark-blue);
+  box-shadow: 0 0 0 3px var(--global-color-dark-blue);
+}
+
+.c-input:focus+.c-label,
+.c-input:active+.c-label {
+  top: -26px;
+  color: var(--global-color-dark-blue);
+}
+
+/*
+    Component: Forms
+    ---
+    Everything form related here
+*/
+.c-form-field {
+  position: relative;
+}
+
+.c-label {
+  position: absolute;
+  top: 12px;
+  left: 8px;
+  padding: 2px 8px;
+  transition: all 0.33s ease-in;
+}
+
+.is-floating {
+  top: -26px;
+  color: var(--global-color-dark-blue);
+}
+
+.c-display__parent {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+
+/*
+    Component: Button
+    ---
+    Class to put on form buttons
+*/
+.c-button {
+  font-size: 24px;
+  font-weight: 400;
+  border: 2px solid var(--global-color-white);
+  color: var(--global-color-blue);
+  padding: var(--global-baseline);
+  background-color: var(--global-color-dark-blue);
+  margin-top: var(--global-baseline);
+  width: 100%;
+  outline: none;
+  box-shadow: 0 0 0 3px var(--global-color-dark-blue);
+  transition: all 0.1s ease-out;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.c-button:hover {
+  border-color: var(--global-color-dark-blue);
+  color: var(--global-color-dark-blue);
+  background-color: var(--global-color-blue);
+}
+
+.c-button:focus {
+  color: var(--global-color-blue);
+  background-color: var(--global-color-dark-blue);
+  border-color: var(--global-color-dark-blue);
+  box-shadow: 0 0 0 3px red;
+}
+
+.c-button:active {
+  border-color: var(--global-color-dark-blue);
+  color: var(--global-color-blue);
+  background-color: var(--global-color-dark-blue);
+  box-shadow: 0 0 0 3px var(--global-color-dark-green);
+}
+
+/*------------------------------------*\
+#UTILITIES
+\*------------------------------------*/
+/*
+    Utilities: Mute
+    Mute with opacity
+*/
+.u-muted {
+  opacity: var(--opacity-muted);
+}
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+@media (min-width: 344px) {
+  .c-container {
+    padding: var(--global-whitespace);
+  }
+
+  .c-grid {
+    grid-gap: var(--global-whitespace)
+  }
+
+  .c-app {
+    width: 360px;
+    padding: var(--global-whitespace);
+  }
+}
+
+@media (min-width: 576px) {
+  h1 {
+    font-size: 32px;
+    line-height: 40px;
+    margin: 0 0 4px;
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 28px;
+    margin: 0 0 8px;
+  }
+
+  .c-container {
+    padding: var(--global-whitespace-lg);
+  }
+
+  .c-grid {
+    grid-gap: var(--global-whitespace-lg)
+  }
+
+  .c-app {
+    width: 438px;
+    padding: var(--global-whitespace-lg);
+  }
+
+  .c-app__degree {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  .c-app__header {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .c-app__pollen-items {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .c-app__pollen-item {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  .c-app__air {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
+@media (min-width: 768px) {}
+
+@media screen and (min-width: 992px) {}
+
+@media print {
+
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster:
+        http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " ("attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " ("attr(title) ")";
+  }
+
+  /*
+    * Don't show links that are fragment identifiers,
+    * or use the `javascript:` pseudo protocol
+    */
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
+    * Printing Tables:
+    * http://css-discuss.incutio.com/wiki/Printing_Tables
+    */
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
