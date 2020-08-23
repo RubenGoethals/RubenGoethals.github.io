@@ -360,6 +360,7 @@ input::placeholder {
 .c-app__logo {
   font-weight: 700;
   display: flex;
+  margin-bottom: var(--global-whitespace);
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
@@ -504,6 +505,7 @@ input::placeholder {
 .c-fullwidth {
   display: flex;
   justify-content: center;
+  margin-bottom: var(--global-whitespace);
 }
 
 .c-mockup {
@@ -531,11 +533,11 @@ input::placeholder {
   outline: none;
   transition: border 0.1s ease-out;
   box-shadow: 0.1s ease-out;
-  border: 1px solid var(--global-color-light-blue);
+  border: 1px solid var(--global-color-blue);
 }
 
 .c-input:hover {
-  border-color: var(--global-color-dark-green);
+  border-color: var(--global-color-dark-blue);
 }
 
 .c-input:focus,
