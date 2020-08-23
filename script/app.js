@@ -1,9 +1,7 @@
-let lon, lat, airquality;
+let lon, lat;
 const appid = 'cfcd25851a9145efb7a5aaebe896f2c3';
-const appid_1 = 'b5c230d1798b90428b69fd85557ac42a';
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const levels = ['None', 'Low', 'Moderate', 'High', 'Very High'];
-const level_colors = ['green', 'green', 'yellow', 'red', 'dark red']
+const level_colors = ['#096', '#096', '#ffde33', '#c03', '#7e0023']
 
 function addDivItem(text) {
   let div = document.createElement('div');
@@ -33,20 +31,23 @@ let showResultLiveboard = queryResponse => {
 
 let showResultAirQuality = (queryResponse) => {
   // Showing the right data I will be using.
-  console.log(levels[queryResponse.data[0].pollen_level_grass]);
+  console.log(queryResponse);
 
   document.querySelector('.js-grass').innerHTML = "Grass";
   document.querySelector('.js-grass').style.background = level_colors[queryResponse.data[0].pollen_level_grass];
   document.querySelector('.js-grass').style.height = `${queryResponse.data[0].pollen_level_grass * 25}%`;
+  document.querySelector('.js-grass').style.animationPlayState = "running";
   document.querySelector('.js-tree').innerHTML = "Tree";
   document.querySelector('.js-tree').style.background = level_colors[queryResponse.data[0].pollen_level_tree];
   document.querySelector('.js-tree').style.height = `${queryResponse.data[0].pollen_level_tree * 25}%`;
+  document.querySelector('.js-tree').style.animationPlayState = "running";
   document.querySelector('.js-weed').innerHTML = "Weed";
   document.querySelector('.js-weed').style.background = `${level_colors[queryResponse.data[0].pollen_level_weed]}`;
   document.querySelector('.js-weed').style.height = `${queryResponse.data[0].pollen_level_weed * 25}%`;
+  document.querySelector('.js-weed').style.animationPlayState = "running";
 
   airquality = queryResponse.data[0].aqi;
-  showResultGauge();
+  showResultGauge(airquality);
 };
 
 let getCurrentWeatherAPI = (lat, lon) => {

@@ -154,7 +154,6 @@ function init() {
     left: 30
   };
 
-  console.log(el[0][0].offsetWidth);
   width = (el[0][0].offsetWidth / 1.1) - margin.left - margin.right;
   height = width;
   radius = Math.min(width, height) / 2;
@@ -221,7 +220,7 @@ function init() {
     .style("fill", "#000000");
 }
 
-let showResultGauge = () => {
+let showResultGauge = (airquality) => {
   value = airquality;
   percentValue = value / gaugeMaxValue;
   needle.moveTo(percentValue);

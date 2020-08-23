@@ -399,7 +399,7 @@ input::placeholder {
   text-align: center;
   font-size: 16px;
   line-height: 20px;
-  color: var(--global-color-blue);
+  color: var(--global-color-white);
 }
 
 .c-app__pollen-item {
@@ -448,7 +448,8 @@ input::placeholder {
   bottom: 0;
   width: 60px;
   background: #ccc;
-  animation: anime1 1s ease-out 1;
+  will-change: transform;
+  animation: anime1 1s ease-out 1 paused;
 }
 
 .c-date1 {
